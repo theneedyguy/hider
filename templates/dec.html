@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>hider - decoding</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+  <br/>
+    <div class="container">
+      <div class="header">
+        <h2 class="display-2">hider - decoding</h2>
+	<h3>Hide messages in images.</h3>
+	<span>Max. upload size: 24MB</span><br/>
+	<span><strong>Supported formats are .png and .bmp images.</strong><span><br/><br/>
+
+	<h4>Disclaimer:</h4>
+	<span>Your uploads are deleted immediately after the message has been revealed.<span><br/>
+	<span>The message is only displayed once after you decode the image. There will be no download.<span><br/>
+      </div>
+      <hr/>
+      <div>
+      <form action="upload_dec" method="post" enctype="multipart/form-data">
+    
+  <br />
+
+    <div class="form-group">
+    <label for="exampleInputFile">Upload File</label>
+      <input class="form-control-file" id="file" name="file" aria-describedby="fileHelp" type="file" required>
+    </div>
+
+<br/><br/>
+ <input type="submit" value="Decode it!" class="btn btn-primary">
+
+
+      </form>
+      </div>
+<hr/>
+    </div>
+	
+
+  </body>
+</html>

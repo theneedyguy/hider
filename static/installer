@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+if [[ ! $(whoami) = "root" ]]; then
+    echo "Please run the script as root."
+    exit 1
+fi
+HIDER="$(which hider 2> /dev/null)"
+if [ -x "$HIDER" ]; then
+  echo "Hider is already installed. Doing nothing." >&2
+  exit 1
+fi
+
+
+PIP3="$(which pip3 2> /dev/null)"
+PYTHON3="$(which python3 2> /dev/null)"
+XDG_ICON_RESOURCE="$(which xdg-icon-resource 2> /dev/null)"
+XDG_DESKTOP_MENU="$(which xdg-desktop-menu 2> /dev/null)"
+UPDATE_MENUS="$(which update-menus 2> /dev/null)"
+
+if [ ! -x "$PIP3" ]; then
+  echo "Error: pip3 is not installed." >&2
+  exit 1
+fi
+if [ ! -x "$PYTHON3" ]; then
+  echo "Error: python3 is not installed." >&2
+  exit 1
+fi
+if [ ! -x "$XDG_ICON_RESOURCE" ]; then
+  echo "Error: Could not find xdg-icon-resource" >&2
+  exit 1
+fi
+if [ ! -x "$XDG_DESKTOP_MENU" ]; then
+  echo "Error: Could not find xdg-desktop-menu" >&2
+  exit 1
+fi
+
+
+# Install Pillow
+echo Installing python3 dependency: Pillow
+pip3 install Pillow 
+echo Done.
+
+
+# Download hider
+echo Downloading hider...
+wget https://hider.purpl3.net/static/hider.tar.xz -O /tmp/hider.tar.xz
+echo Done.
+
+# Unpack hider
+echo Unpacking hider...
+
+tar -xf /tmp/hider.tar.xz -C /tmp/
+
+echo Done unpacking.
+echo Changing into hider directory...
+
+cd /tmp/hider
+
+echo Copy hider to /usr/bin/ and changing executable bit
+cp /tmp/hider/bin/hider /usr/bin/
+chmod +x /usr/bin/hider
+
+# Installing icons
+echo Installing icons...
+for icon in $(ls -1 /tmp/hider/icons/hider-*.png); do
+  echo "Registering icon $icon"
+  size="${icon##*/hider-}"
+  "$XDG_ICON_RESOURCE" install --size "${size%.png}" "$icon" "hider-client"
+done
+
+# Installing desktop entry
+echo "Registering desktop entry"
+"$XDG_DESKTOP_MENU" install --novendor "/tmp/hider/hider.desktop"
+if [ -x "$UPDATE_MENUS" ]; then
+  "$UPDATE_MENUS"
+fi
+
+echo Removing unused files from /tmp
+rm -rf /tmp/hider
+
+

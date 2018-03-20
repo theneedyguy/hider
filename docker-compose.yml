@@ -1,0 +1,16 @@
+version: '2.1'
+
+networks:
+  hider-net:
+    driver: bridge
+
+services:
+  hider:
+    image: ckevi/hider
+    container_name: hider
+    restart: unless-stopped
+    ports:
+        - "3131:3131"
+    networks:
+      - hider-net
+

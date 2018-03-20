@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<title>hider - start</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+	body {
+	  padding-top: 40px;
+	  padding-bottom: 40px;
+	}
+
+	.choice-div {
+	  max-width: 500px;
+	  padding: 15px;
+	  margin: 0 auto;
+	}
+	.form-signin .form-signin-heading,
+	.form-signin .checkbox {
+	  margin-bottom: 10px;
+	}
+</style>
+</head>
+<body>
+<div class="choice-div">
+	<h2 class="form-signin-heading text-center">hider</h2>
+	<i><h6 class="form-signin-heading text-center">v1.4.1 (Online Version)</h6></i>
+	<a href="/enc" class="btn btn-lg btn-primary btn-block">Encode Image</a>
+	<a href="/dec" class="btn btn-lg btn-primary btn-block">Decode Image</a>
+	<br/>
+	<p class="font-italic">hider is a tool to hide text in images. You can also use it to decode messages from images that were converted with this tool.</p>
+	<p class="font-italic">Maximum permitted upload size is 24MB. The message length is limited to the size of the image you are using. (i.e. the total number of pixels is the limit of the message)</p>
+	<p class="font-italic">Uploads are deleted 1 minute after upload.</p>
+
+
+  <div class="text-center">
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Windows Version</h4>
+    <p class="card-text">The official hider client for Windows. <br/>Built with .NET Framework 4.5</p>
+    <img src="/static/win.png" class="img-responsive center-block" alt="Windows Version"><br/>
+    <p class="card-text">Version: 1.0</p>
+    <p class="card-text">sha1sum hider.exe:</p>
+    <p class="text-muted">b3f535bff04ca84d117432085553c15027b98976</p>
+    
+    <a href="/static/hider.zip" class="btn btn-primary active">Download</a>
+  </div>
+ </div>
+ </div>
+<br/>
+  <div class="text-center">
+           <div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Linux Version</h4>
+    <p class="card-text">The official hider client for Linux!<br/>Built with Python3 and GTK3</p>
+     <img src="/static/linux.png" class="img-responsive center-block" alt="Linux Version"><br/>
+    <p class="card-text">Version: 1.0-beta</p>
+    <p class="card-text">sha1sum hider:</p>
+    <p class="text-muted">f3d744a196ad1aa71e18307a34a91faa514fecf3</p>
+    <p class="card-text">Install:</p>
+    <p class="text-muted">sudo sh -c 'curl https://hider.purpl3.net/static/installer | bash'</p>
+  </div>
+</div>
+</div>
+<br/>
+  <div class="text-center">
+           <div class="card">
+  <div class="card-body">
+    <h4 class="card-title">macOS Version</h4>
+    <p class="card-text">Due to problems with libraries the development for macOS has been cancelled.</p>
+    <p class="card-text"></p>
+    <a href="#" class="btn btn-primary disabled" aria-disabled="true">Development Cancelled</a>
+  </div>
+</div>
+</div>
+<br/>
+
+
+
+</div >
+
+
+
+</body>
+</html>
